@@ -1,0 +1,40 @@
+/*
+8/25実施　
+既存関数を使うことで簡単に行えた.
+特筆すべきことはなし
+*/
+
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <vector>
+#include <ctype.h>
+
+
+using namespace std;
+
+int main() {
+	string s;
+	cin >> s;
+	int Omoji = 0, Komoji = 0;
+	for (int i = 0; i < s.length(); i++) {
+		if (isupper(s[i])) {
+			Omoji += 1;
+		}
+		else {
+			Komoji += 1;
+		}
+	}
+	if (Omoji > Komoji) {
+		for (int i = 0; i < s.length(); i++) {
+			s[i] = toupper(s[i]);
+		}
+		
+	}
+	else {
+		for (int i = 0; i < s.length(); i++) {
+			s[i] = tolower(s[i]);
+		}
+	}
+	cout << s;
+}

@@ -1,0 +1,36 @@
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	int number;
+	cin >> number;
+	int one, two, three, four;
+
+	while (number != 0) {
+		number += 1;
+		int number2 = number;
+		one = number2 % 10;
+		number2 = number2 / 10;
+		two = number2 % 10;
+		number2 = number2 / 10;
+		three = number2 % 10;
+		number2 = number2 / 10;
+		four = number2 % 10;
+		//cout << four << three << two << one << endl;
+		
+		if (four == three || four == two || four == one || three == two || three == one || two == one) {
+		}else{
+			cout << four << three << two << one << endl;
+			break;
+		}
+	}
+
+
+
+
+
+}

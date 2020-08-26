@@ -1,0 +1,92 @@
+#include <iostream>
+#include <iomanip>
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+ 
+using namespace std;
+int colum1(int colum);
+ 
+int main() {
+	int a[5], b[5], c[5], d[5] ,e[5];
+	int ch;
+	cin >> a[0] >> a[1] >> a[2] >> a[3] >> a[4];
+	cin >> b[0] >> b[1] >> b[2] >> b[3] >> b[4];
+	cin >> c[0] >> c[1] >> c[2] >> c[3] >> c[4];
+	cin >> d[0] >> d[1] >> d[2] >> d[3] >> d[4];
+	cin >> e[0] >> e[1] >> e[2] >> e[3] >> e[4];
+ 
+	char row = 'A';
+	int colum,time = 0;
+ 
+	for (int i = 0; i < 5; i++) {
+		if (a[i] == 1) {
+			row = 'a';
+			colum = i;
+		}
+		if (b[i] == 1) {
+			row = 'b';
+			colum = i;
+		}
+		if (c[i] ==1) {
+			row = 'c';
+			colum = i;
+		}
+		if (d[i] == 1) {
+			row = 'd';
+			colum = i;
+		}
+		if (e[i] == 1) {
+			
+			row = 'e';
+			colum = i;
+		}
+	}
+	switch (row) {
+		time = 0;
+		case 'a' :
+			time += 2;
+			time +=colum1(colum);
+			break;
+		case 'b':
+			time += 1;
+			time += colum1(colum);
+			break;
+			break;
+		case 'c':
+			time += colum1(colum);
+			break;
+			break;
+		case 'd':
+			time += 1;
+			time += colum1(colum);
+			break;
+		case 'e':
+			time += 2;
+			time += colum1(colum);
+			break;
+		}
+	std::cout <<  time << endl;
+	return 0;
+}
+ 
+int colum1(int colum) {
+	int time = 0;
+	switch (colum) {
+	case(0):
+		time += 2;
+		break;
+	case(4):
+		time += 2;
+		break;
+	}
+	switch (colum) {
+	case(1):
+		time += 1;
+		break;
+	case(3):
+		time += 1;
+		break;
+	}
+	return time;
+}

@@ -1,0 +1,40 @@
+//8/24　方針はstringで受け取り,
+//配列とする
+//-,.は連続している場合に受け取る
+//iは+2することで重複を防ぐ
+//iはオーバーフローしない
+//最終が[-][.]だとしてもiはどちらかにいるので
+//起こり得ない.
+
+
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	string s;
+	cin >> s;
+	/*cout << s[0] <<endl;*/
+	int i = 0;
+	for (int i = 0; i < s.length();i++){
+		if (s[i] == '.') {
+			cout << '0';
+		}
+		if (s[i] == '-' && s[i+1] == '.') {
+			cout << '1';
+			i++;
+		}
+		if (s[i] == '-' && s[i+1] == '-') {
+			cout << '2';
+			i++;
+		}
+
+
+	}
+
+
+	return 0;
+}

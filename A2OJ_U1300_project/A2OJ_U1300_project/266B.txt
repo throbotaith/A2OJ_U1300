@@ -1,0 +1,66 @@
+/*
+8/23実施分.
+当初の方針
+配列が1の場合,そうでない場合で場合分け
+配列が一超過の場合,forで回す前に
+0番目とnumber-1番目において配列の範囲を超えないために
+ifで交代条件を満たす場合に,スワップとtimeを1引いた
+そのあとforループで...
+
+高効率回答
+forを1からnumber -1まで回す
+上記の条件等は配列が1の場合forで回しても正答
+0番目のnumber-1番目もforのなかで完結する[0],[1]の値の比較だけ
+timeをひいた分配列を操作　配列は動かすことに変わる,
+配列操作は[0],[number]番目の処理に関してはi=1から始めれば
+問題なく通じ,number = 1の場合は一度もループせず終わるので
+自動的に条件を満たしている.
+
+
+*/
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	int number = 0, time = 0;
+	string s;
+	cin >> number >> time >> s;
+	while (time--) {
+		for (int i = 1; i < number; i++) {
+			if (s[i] == 'G' && s[i - 1] == 'B')
+			{
+				s[i] = 'B';
+				s[i - 1] = 'G';
+				i++;
+			}
+		}
+
+	}
+	cout << s << "\n";
+	return 0;
+}
+/*
+int main() {
+	int number = 0,time = 0;
+	cin >> number >> time;
+	vector<char> row(number);
+	for (int i = 0; i < number; i++) {
+		cin >> row[i];
+	}
+	if (number > 1 && time > 0) {
+		if (row[0] == 'B' && row[1] == 'G') {
+
+		}
+	}
+	else {
+		cout << row[0];
+	}
+	
+
+
+	return 0;
+}*/
