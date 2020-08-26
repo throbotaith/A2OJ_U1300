@@ -1,0 +1,44 @@
+/*
+‘f”–â‘è
+©•ª‚Æ1ˆÈŠO‚Å‚µ‚©Š„‚èØ‚ê‚È‚¢’l‚ÌÀ‘•.
+
+*/
+
+#include <iostream>
+#include <vector>
+ 
+using namespace std;
+int main() {
+	int n1, n2,nn=0,n3 = 0,count =0;
+	cin >> n1 >> n2;
+	
+	n3 = n1;
+	
+	while(nn == 0){
+		count = 0;
+		n3 += 1;
+		for (int i = 1; i < n3; i++) {
+ 
+			if (n3 % i == 0) {
+				
+				count += 1;
+				//cout << "n3:" << n3 << "i=" << i << "count:"<< count <<endl;
+			}
+ 
+		}
+		if (n3 % n3 == 0) {
+			count += 1;
+		}
+		//cout << "count_last" << count << endl;
+		if (count == 2) {
+			nn = 1;
+		}
+		
+	}
+	if (n2 == n3) {
+		cout << "YES" << endl;
+	}
+	else {
+		cout << "NO" << endl;
+	}
+}

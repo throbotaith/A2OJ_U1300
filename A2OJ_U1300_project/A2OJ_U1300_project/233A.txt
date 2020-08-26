@@ -1,0 +1,32 @@
+/*
+‚Ô‚Á‚¿‚á‚¯–â‘è‚ÌˆÓ–¡‚ª•ª‚©‚ç‚È‚©‚Á‚½.
+‚æ‚¤‚Í‡—ñ‚Ì 4 3 / 2 1‚Ì‚æ‚¤‚É•ª•ê•ªŽq‚ÌŒÂ”‚ª
+ˆê’v‚·‚é‡—ñ‚Ì”‚ð‹‚ß‚ê‚Î‚æ‚¢.543/21‚ÍŠï”‚È‚Ì‚Å•s‰Â
+
+*/
+
+
+
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+	int number;
+	cin >> number;
+	if (number % 2 == 1)
+	{
+		cout << -1 << endl;
+	}
+	else
+	{
+		cout << "2 1";
+		for (int i = 3; i < number; i += 2)
+		{
+			cout << " " << i + 1 << " " << i;
+		}
+		cout << endl;
+	}
+	return 0;
+}

@@ -1,0 +1,46 @@
+/*
+配列のスワップ問題　スワップする2要素(MAX,min)が交差するならば
+スワップ数はそれぞれ単独でスワップした値-1になる.
+なぜなら,単独でスワップした時点で(MAX or min)は端に到達しており,
+少なくとも最大スワップ数を要求される地点にはすでにスワップによって
+入った数字がおり,自身は相手の最後のスワップによって|端の位置-1|
+となっているからだ.
+*/
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+#include <cstdlib>
+using namespace std;
+ 
+int main()
+{
+	int in = 0, a = 0, b = 0, count = 0;
+	cin >> in;
+ 
+	int inmax = 0;
+	int inmin = 0;
+	int max2 = 0;
+	int min2 = 1000;
+	for (int i = 0; i < in; i++) {
+		int x;
+		cin >> x;
+		if (x > max2) {
+			inmax = i;
+			max2 = x;
+		}
+		if (min2 >= x) {
+			inmin = i;
+			min2 = x;
+ 
+		}
+	}
+	//cout << inmax << "   max" << inmin << "min\n";
+	if (inmax < inmin) {
+		cout << (in - 1 - inmin) + (inmax);
+	}
+	else {
+		cout << (inmax)+(in - 1 - inmin) - 1;
+	}
+	
+}
