@@ -1,0 +1,74 @@
+/*
+各入力値を一つの配列にまとめて行う方式の効率が良い.
+
+coded by Bugman
+using namespace std;
+ 
+int n,m;
+int i,j,k,l;
+bool u[222222];
+int p[55];
+ 
+int main(){
+	//freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);
+	
+	for(i=0;i<4;++i) cin>>p[i];//入力値を配列に代入
+	cin>>n;
+	
+	for(i=0;i<4;++i){
+		for(k=p[i];k<=n;k+=p[i]) u[k]=true;//各入力値の倍数ごとにbool配列の値をtrue(1)にする*素晴らしい考え！
+	}
+	
+	k=0;
+	for(i=1;i<=n;++i) k+=u[i];//bool配列の要素の値を足していく. これだけで OKすばらしいです.
+	
+	cout<<k<<endl;
+	
+	return 0;
+}
+
+
+
+*/
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <numeric>
+
+using namespace std;
+
+int main() {
+	int k, l, m, n,d;
+	
+	cin >> k >> l >> m >> n >> d; 
+
+	int time = 0;
+	int a, b, c;
+	int* ab = new int[d];
+
+	for (int i = 1; k * i <= d; i++) {
+		ab[k * i-1] = 1;
+	}
+	for (int i = 1; l * i <= d; i++) {
+		ab[l * i-1] = 1;
+	}
+	for (int i = 1; m * i <= d; i++) {
+		ab[m * i-1] = 1;
+	}
+	for (int i = 1; n * i <= d; i++) {
+		ab[n * i-1] = 1;
+	}
+
+	int count = 0;
+
+	for (int i = 0; i < d; i++) {
+		if (ab[i] == 1) {
+			count += 1;
+		}
+	}
+	for (int i = 0; i < d; i++) {
+		//cout << "ab[" << i << "]=" << ab[i] << endl;
+	}
+
+	cout << count <<endl ;
+}

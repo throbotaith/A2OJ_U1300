@@ -1,0 +1,43 @@
+/*
+与えられた配列の中で0番目の値と1 to n番で比較し,[0] > [i]で min = [i]で変更数を足す
+与えられた配列の中で0番目の値と1 to n番で比較し,[0] < [i]で max = [i]で変更数を足す 
+
+*/
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <numeric>
+
+using namespace std;
+
+int main() {
+	int in;
+	cin >> in;
+	vector <int> a(in);
+	for (int i = 0; i < in; i++) {
+		cin >> a[i];
+	}
+	if (in == 1) {
+		cout << 0;
+		return 0;
+	}
+	int number = a[0],count = 0;
+	for (int i = 0; i < in; i++) {
+		if (a[i] > number) {
+			number = a[i];
+			//cout << a[i] << endl;
+			count += 1;
+		}
+	}
+	int min = a[0];
+	for (int i = 0; i < in; i++) {
+		if (a[i] < min) {		
+			//cout << a[i] << endl;
+			min = a[i];
+			count += 1;
+		}
+	}
+	cout << count  << endl;
+
+
+}
