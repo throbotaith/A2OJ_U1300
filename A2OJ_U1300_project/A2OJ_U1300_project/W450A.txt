@@ -1,0 +1,29 @@
+
+
+int main()
+{
+	queue<pair<int, int>>a; //キューを定義
+	int n, m;
+	pair<int, int>b;
+	cin >> n >> m;
+	for (int i = 1; i <= n; i++) {
+		int c;
+		cin >> c;
+		a.push({ c,i }); //キューに許容量を詰めていく
+	}
+	while (a.size() > 1) //キューが1になるまで続ける.
+		if (a.front().first <= m) {//キューの先頭値(許容値)がm以下の場合,
+			a.pop();　　　　　　　 //条件を満たしているのでキューを押し出し
+		}
+		else {　//それ以外
+			b = a.front(); //bに先頭値を代入
+			b.first -= m;  //先頭値からmをひく(足していくんじゃないんか！！)
+			a.pop();       //値を押し出す.aにbの値を代入する
+			a.push(b);
+		}
+	}
+	cout << a.front().second;残ったキューの値を返す.
+	return 0;
+
+
+	}
